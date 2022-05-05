@@ -139,33 +139,59 @@ inicio(n)
 
 ##arbol
 
-def navidad(cantidad)
-    for i in 0..cantidad-1
-        print ((" " * (cantidad -1 - i)) + ("*" * ((2 * i ) + 1)))
-        print((" " * cantidad) ) 
-        print "\n"
-    end
+# def navidad(cantidad)
+#     for i in 0..cantidad-1
+#         print ((" " * (cantidad -1 - i)) + ("*" * ((2 * i ) + 1)))
+#         print((" " * cantidad) ) 
+#         print "\n"
+#     end
 
    
+# end
+def copa(cantidad)
+    c = "* "
+    value = c
+
+    for i in 1..cantidad
+        puts " " * (cantidad - i) + value
+        value += c * (2 - 1)
+    end
+
 end
 
-def base(cantidad)
-    for i in 0..(cantidad -1)
-        for j in 0..(cantidad -1)
-            if  j == cantidad -1 || i == cantidad -1 
+def tronco (cantidad)
+    
+    (cantidad - 1).times do |i|
+        cantidad.times do |j|
+            if j == ((2*cantidad - 1) / 2)
                 print "*"
-                else
+            else 
                 print " "
             end
-        end
-        print "\n"
+        end   
+        print "\n" 
     end
-    
+end
+
+
+
+
+def base(cantidad)
+    (cantidad*2).times do |i|
+        if i.even? &&  i != 0 && i != cantidad +3
+            print "*"
+        else 
+            print " "
+        end
+      
+    end
+      print "\n"
 end
 
 
 def inicio(cantidad)
-    navidad(cantidad)
+    copa(cantidad)
+    tronco(cantidad)
     base(cantidad)
    
     
